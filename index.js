@@ -17,10 +17,44 @@ if (pinAnswer.pin === myPin) {
             name: "operation",
             message: "Please select one of the operator",
             type: "list",
-            choices: ["withdraw", "check balance"],
+            choices: ["withdraw", "check balance", "fastCash"],
         }
     ]);
-    if (operationAns.operation === "withdraw") {
+    if (operationAns.operation === "fastCash") {
+        let fast = await inquirer.prompt([
+            {
+                name: "fast_Cash",
+                type: "list",
+                message: "How much money you want to withdraw",
+                choices: ["500", "1000", "2000", "5000", "7000", "10000"]
+            }
+        ]);
+        if (fast.fast_Cash === "500") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is: ${myBalance}`);
+        }
+        if (fast.fast_Cash === "1000") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is: ${myBalance}`);
+        }
+        if (fast.fast_Cash === "2000") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is ${myBalance}`);
+        }
+        if (fast.fast_Cash === "5000") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is: ${myBalance}`);
+        }
+        if (fast.fast_Cash === "7000") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is: ${myBalance}`);
+        }
+        if (fast.fast_Cash === "10000") {
+            myBalance -= fast.fast_Cash;
+            console.log(`Your remaining balance is: ${myBalance}`);
+        }
+    }
+    else if (operationAns.operation === "withdraw") {
         let amountAns = await inquirer.prompt([
             {
                 name: "amount",
